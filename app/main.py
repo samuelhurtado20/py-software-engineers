@@ -1,7 +1,8 @@
 class SoftwareEngineer:
     def __init__(self, name: str) -> None:
         self.name = name
-        self.skills = []
+        if not hasattr(self, "skills"):
+            self.skills = []
 
     def learn_skill(self, skill: str) -> None:
         if skill not in self.skills:
@@ -11,7 +12,7 @@ class SoftwareEngineer:
 class FrontendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        self.skills.extend(["JavaScript", "HTML", "CSS"])
+        self.skills.extend(["JavaScript", "CSS", "HTML"])
 
     def create_awesome_web_page(self) -> str:
         print(f"{self.name} is creating a webpage...")
