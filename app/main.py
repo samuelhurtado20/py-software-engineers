@@ -21,7 +21,6 @@ class FrontendDeveloper(SoftwareEngineer):
 class BackendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        # Extendemos las habilidades base de Backend
         self.skills.extend(["Python", "SQL", "Django"])
 
     def create_powerful_api(self) -> str:
@@ -41,11 +40,9 @@ class AndroidDeveloper(SoftwareEngineer):
 
 class FullStackDeveloper(BackendDeveloper, FrontendDeveloper):
     def __init__(self, name: str) -> None:
-        # En herencia múltiple, super() sigue el MRO (Method Resolution Order)
         super().__init__(name)
 
     def create_web_application(self) -> None:
         print(f"{self.name} started creating a web application...")
-        # Al heredar de ambos, tenemos acceso a los métodos de Frontend y Backend
         self.create_powerful_api()
         self.create_awesome_web_page()
